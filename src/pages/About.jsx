@@ -4,9 +4,9 @@ import WhyChooseUs from "./WhyChooseUs";
 const About = () => {
   return (
     <div>
-      <div className="text-center text-2xl pt-10 text-gray-500 mb-8">
-        <p>
-          About <span className="text-gray-600 font-medium">Us</span>{" "}
+      <div className="text-center text-3xl pt-10 mb-8">
+        <p className="font-serif">
+          About Us
         </p>
       </div>
 
