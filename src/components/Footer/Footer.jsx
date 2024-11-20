@@ -93,49 +93,6 @@ const Footer = () => {
                                     </a>
                                 </div>
 
-                                <div>
-                                    <h3 className="text-gray-700 uppercase dark:text-white">Blog</h3>
-                                    <a
-                                        href="#"
-                                        className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
-                                    >
-                                        Tech
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
-                                    >
-                                        Music
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
-                                    >
-                                        Videos
-                                    </a>
-                                </div>
-
-                                <div>
-                                    <h3 className="text-gray-700 uppercase dark:text-white">Products</h3>
-                                    <a
-                                        href="#"
-                                        className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
-                                    >
-                                        Mega Cloud
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
-                                    >
-                                        Aperion UI
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"
-                                    >
-                                        Meraki UI
-                                    </a>
-                                </div>
 
                                 <div>
                                     <h3 className="text-gray-700 uppercase dark:text-white">Contact</h3>
