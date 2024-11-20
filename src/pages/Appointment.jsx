@@ -24,7 +24,7 @@ const Appointment = () => {
     const getAvailableSlots  = async () => {
         setSlot([])
 
-        // getting current data
+        // getting current date
 
         let today = new Date()
 
@@ -48,11 +48,12 @@ const Appointment = () => {
                 currentDate.setHours(10)
                 currentDate.setMinutes(0)
             }
+            
 
             let timeSlots = []
 
             while(currentDate < endTime) {
-                let formattedTime = currentDate.toLocaleDateString([],{hour: '2-digit', minute : '2-digit'})
+                let formattedTime = currentDate.toLocaleTimeString([],{hour: '2-digit', minute : '2-digit'})
                 
                 // add slots to array
 
@@ -72,6 +73,10 @@ const Appointment = () => {
 
     }
 
+
+ 
+    
+
     const fetchDocInfo = async() => {
 
         const docInfo = doctors.find(doc => doc._id === docId)
@@ -86,9 +91,11 @@ const Appointment = () => {
         console.log(slot);
     },[slot])
 
+
     useEffect(() => {
         getAvailableSlots()
     },[docInfo])
+
 
     useEffect(() => {
         fetchDocInfo()
@@ -144,16 +151,37 @@ const Appointment = () => {
             <div className="sm:ml-72 sm:pl-4 mt-4 font-medium text-gray-500">
                 <p>Booking Slots</p>
 
-                <div>
+                <div className="flex gap-3 items-center w-full overflow-x-scroll mt-4">
                     {
-                        slot.length && slot.map((item,index) => (
-                            <div key={index}>
+                        slot.length > 0 && slot.map((item,index) => (
+
+                            <div onClick={()=> setSlotIndex(index)} key={index} className={`text-center py-6 min-w-16 rounded-full cursor-pointer ${slotIndex === index ? 'bg-primary text-white' : 'border border-gray-500'}`}>
+
                                 <p>{item[0] && daysOfWeek[item[0].datetime.getDay()]}</p>
                                 <p>{item[0] && item[0].datetime.getDate()}</p>
+
                             </div>
                         ))
                     }
                 </div>
+
+
+                <div className="flex items-center gap-3 w-full overflow-x-scroll mt-4">
+                    {
+                        slot.length && slot[slotIndex].map((item,index) => (
+
+                            <p onClick={()=> setSlotTime(item.time)} className={`text-sm font-light flex-shrink-0 px-5 py-2 rounded-full cursor-pointer ${item.time === slotTime ? 'bg-primary text-white' : 'text-gray-400 border border-gray-400'}`} key={index}>
+                                {item.time.toLowerCase()}
+                            </p>
+                        ))
+                    }
+                </div>
+
+                <button className="btn btn-wide bg-blue-300 mt-4">Book an appointment</button>
+
+
+
+
             </div>
         </div>
     );
@@ -161,4 +189,5 @@ const Appointment = () => {
 };
 
 export default Appointment;
+
 
