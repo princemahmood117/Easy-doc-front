@@ -9,6 +9,8 @@ const Login = () => {
   
   const [password, setPassword] = useState("");
 
+  const [blood, setBlood] = useState("");
+
   const onSubmitHandler = async (event) => {
     event.preventDefault();
   };
@@ -68,7 +70,12 @@ const Login = () => {
             </div>
 
             <div className="w-full">
-                <p>Full name</p>
+                <p>Blood Group</p>
+                <input className="border border-zinc-300 rounded w-full mt-1 p-1.5" type="text" value={blood} onChange={(e)=> setBlood(e.target.value)} required/>
+            </div>
+
+            <div className="w-full">
+                <p>Password</p>
                 <input className="border border-zinc-300 rounded w-full mt-1 p-1.5" type="password" value={password} onChange={(e)=> setPassword(e.target.value)} required />
             </div>
 

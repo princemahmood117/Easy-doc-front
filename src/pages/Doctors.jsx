@@ -8,6 +8,8 @@ const Doctors = () => {
 
     const [filterDoc,setFilterDoc] = useState([])
 
+    const [showFilter,setShowFilter] = useState(false)
+
     console.log(speciality);
 
     const navigate = useNavigate()
@@ -33,7 +35,13 @@ const Doctors = () => {
             <p className="text-gray-500">Browse through the doctors specialist</p>
 
             <div className="flex flex-col sm:flex-row items-start gap-5 mt-5">
-                <div className="flex flex-col gap-4 test-sm text-gray-500">
+
+                {/* show filter button */}
+
+                <button className={`py-1 px-3 border rounded text-sm transition-all sm:hidden ${showFilter ? 'bg-primary text-white' : ''}`} onClick={()=> setShowFilter(prev => !prev)}>Filter</button>
+
+                <div className={` flex-col gap-4 test-sm text-gray-500 ${showFilter ? 'flex' : 'hidden sm:flex'}`}>
+
                    <p onClick={()=> speciality === 'General physician' ? navigate('/doctors') : navigate('/doctors/General physician')} className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-400 rounded transition-all cursor-pointer ${speciality === "General physician" ? 'bg-indigo-100 text-black' : ""}`}>General physician</p>
 
 
